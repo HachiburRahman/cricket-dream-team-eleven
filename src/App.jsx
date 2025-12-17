@@ -4,7 +4,9 @@ import './App.css'
 import AvailablePlayers from './Components/AvailablePlayers/AvailablePlayers'
 import Navbar from './Components/Navbar/Navbar'
 import SelectedPlayers from './Components/SelectedPlayers/SelectedPlayers'
-import Banner from './Components/Banner/Banner'
+import Banner from './Components/Banner/Banner';
+import { ToastContainer } from 'react-toastify';
+import footerLogo from "./assets/logo-footer.png";
 
 
 
@@ -54,7 +56,99 @@ const removePlayer=(p)=>{
     </Suspense>: <SelectedPlayers purchasedPlayers={purchasedPlayers} setPurchasedPlayers={setPurchasedPlayers} removePlayer={removePlayer}></SelectedPlayers>
     }
 
-    
+    {/* <!-- Newsletter Section --> */}
+<section class="bg-[#0b0f1a] py-20 max-w-300 mx-auto">
+  <div class="max-w-5xl mx-auto px-6">
+    <div
+  class="relative -mt-48 bg-linear-to-r from-blue-100 via-white to-orange-100 rounded-2xl p-10 text-center shadow-lg"
+>
+
+      <h2 class="text-2xl font-bold text-gray-900">
+        Subscribe to our Newsletter
+      </h2>
+      <p class="text-gray-600 mt-2">
+        Get the latest updates and news right in your inbox!
+      </p>
+
+      <div class="mt-6 flex justify-center gap-3">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="w-64 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none"
+        />
+        <button
+          class="px-6 py-2 rounded-lg bg-linear-to-r from-pink-400 to-yellow-400 font-semibold text-black"
+        >
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* <!-- Footer --> */}
+<footer class="bg-[#050914] text-gray-400 pt-20 pb-6 max-w-300 mx-auto">
+  <div class="max-w-6xl mx-auto px-6">
+
+    {/* <!-- Top Grid --> */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+
+      {/* <!-- About --> */}
+      <div>
+        <h3 class="text-white font-semibold mb-3">About Us</h3>
+        <p class="text-sm">
+          We are a passionate team dedicated to providing the best services to
+          our customers.
+        </p>
+      </div>
+
+      {/* <!-- Logo + Links --> */}
+      <div class="flex flex-col items-center">
+        <img
+          src={footerLogo}
+          alt="Cricket Logo"
+          class="w-16 mb-3"
+        />
+        <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+        <ul class="space-y-1 text-sm">
+          <li>Home</li>
+          <li>Services</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+
+      {/* <!-- Subscribe --> */}
+      <div>
+        <h3 class="text-white font-semibold mb-3">Subscribe</h3>
+        <p class="text-sm mb-3">
+          Subscribe to our newsletter for the latest updates.
+        </p>
+        <div class="flex gap-2">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-2 rounded-lg text-black focus:outline-none"
+          />
+          <button
+            class="px-4 py-2 rounded-lg bg-linear-to-r from-pink-400 to-yellow-400 font-semibold text-black"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {/* <!-- Bottom --> */}
+    <div class="border-t border-gray-700 mt-10 pt-4 text-center text-sm">
+      ©2025 Your Company All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+
+    <ToastContainer />
    
     </>
   )

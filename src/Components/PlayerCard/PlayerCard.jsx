@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PlayerIcon from "../../assets/PlayerIcon.png";
 import CountryFlag from "../../assets/CountryLogo.png";
+import { toast } from 'react-toastify';
 
 
 const PlayerCard = ({player,setAvailableBalance,availableBalance,purchasedPlayers,setPurchasedPlayers}) => {
     
     const [isSelected,setIsSelected]=useState(false);
 
+
+
+ 
+useEffect(() => {
+  const found = purchasedPlayers.some(p => p.name === player.name);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setIsSelected(found);
+}, [purchasedPlayers, player.name]);
+
+
     const handleSelectedPlayer=(playerData)=>{
         if(availableBalance<playerData.price)
         {
-         alert("No Sufficient Balance");
+         toast("No Sufficient Balance");
          return
         }
         else{
@@ -22,7 +33,7 @@ const PlayerCard = ({player,setAvailableBalance,availableBalance,purchasedPlayer
     }
 
     return (
-        <div className="card bg-base-100 w-96 shadow-sm p-4">
+        <div className="mx-auto md:card bg-base-100 w-96 shadow-sm p-4 ">
           <figure>
             <img src={player.image} alt="Shoes" className="w-75 h-87.5 object-cover"/>
           </figure>
